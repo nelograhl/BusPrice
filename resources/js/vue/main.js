@@ -19,6 +19,11 @@ const Create = () => import('./components/bus/Create.vue')
 const Edit = () => import('./components/bus/Edit.vue')
 
 
+/* Registros components */
+const Registros = () => import('./components/registrop/List.vue')
+const RegistroCreate = () => import('./components/registrop/Create.vue')
+const RegistroEdit = () => import('./components/registrop/Edit.vue')
+
 /* */
 const Config = () => import('./components/config/Config.vue')
 
@@ -47,8 +52,22 @@ const routes = [
         name: 'config',
         path: '/config',
         component: Config
+    },
+    {
+        name: 'registrosp',
+        path: '/registrosp',
+        component: Registros
+    },
+    {
+        name: 'crearRegistro',
+        path: '/crearregistro',
+        component: RegistroCreate
+    },
+    {
+        name: 'editarRegistro',
+        path: '/editarregistro',
+        component: RegistroEdit
     }
-    
 ];
 
 //Vue.use(VueRouter);

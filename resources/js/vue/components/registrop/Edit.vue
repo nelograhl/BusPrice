@@ -8,12 +8,6 @@
                 <form @submit.prevent="actualizar">
                     <div class="row">
                         <div class="col-12">
-                            <div class="form-group">
-                                <label for="cantidadt" class="form-label">
-                                    Identificador
-                                </label>
-                                <input type="text" v-model="registro.id" class="form-control">
-                            </div>
                            <div class="form-group">
                                 <label for="fecha" class="form-label">
                                     Fecha
@@ -52,7 +46,6 @@
         data(){
             return {
                registro: {
-                    id:"",
                     fecha: "",
                     cantidadt: "",
                     cantidadd: ""
