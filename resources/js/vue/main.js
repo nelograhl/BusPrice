@@ -24,6 +24,11 @@ const Registros = () => import('./components/registrop/List.vue')
 const RegistroCreate = () => import('./components/registrop/Create.vue')
 const RegistroEdit = () => import('./components/registrop/Edit.vue')
 
+/* Tipos de Mantenimiento components */
+const TipoMant = () => import('./components/tipomant/List.vue')
+const TipoMantCreate = () => import('./components/tipomant/Create.vue')
+const TipoMantEdit = () => import('./components/tipomant/Edit.vue')
+
 /* */
 const Config = () => import('./components/config/Config.vue')
 
@@ -67,6 +72,21 @@ const routes = [
         name: 'editarRegistro',
         path: '/editarregistro',
         component: RegistroEdit
+    },
+    {
+        name: 'tipomant',
+        path: '/tipomant',
+        component: TipoMant
+    },
+    {
+        name: 'crearTipoMant',
+        path: '/tipomant/create',
+        component: TipoMantCreate
+    },
+    {
+        name: 'editarTipoMant',
+        path: '/tipomant/edit',
+        component: TipoMantEdit
     }
 ];
 

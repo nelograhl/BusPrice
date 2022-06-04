@@ -3,6 +3,7 @@
 use App\Http\Controllers\BusController;
 use App\Http\Controllers\ConfigController;
 use App\Http\Controllers\RegistropController;
+use App\Http\Controllers\TipoMantenimientoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -24,3 +25,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::resource('buses', BusController::class);
 Route::resource('config', ConfigController::class);
 Route::resource('registrosp', RegistropController::class);
+Route::resource('tipomantenimientos', TipoMantenimientoController::class);

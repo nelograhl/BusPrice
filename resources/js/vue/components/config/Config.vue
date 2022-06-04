@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row card">
             <div class="col-12 card-header">
-                <h1>Settings</h1>
+                <h1>Configuración</h1>
             </div>
             <div class="col-12 card-body">
                 <form @submit.prevent="actualizar">
