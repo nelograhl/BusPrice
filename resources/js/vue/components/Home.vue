@@ -11,7 +11,7 @@
             de Ingeniería Informática de la <b>Universidad Católica "Nuestra Señora
             de la Asunción" - Campus Itapúa</b>. El fin de dicho proyecto es el de 
             calcular el precio ideal para los pasajes de buses de 
-            la ¿ciudad de Encarnación?. 
+            la ciudad de Encarnación. 
         </div>
         <br>
         <div>

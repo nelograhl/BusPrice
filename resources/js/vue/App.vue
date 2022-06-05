@@ -27,11 +27,13 @@
 					</li>
 					<li class="nav-item">
 						<router-link class="nav-link" to="/coeficientes">Coeficientes de Consumo</router-link>
+					</li>
+					<li class="nav-item">
 						<router-link class="nav-link" to="/costos">Costos Variables</router-link>
 					</li>
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-							Dropdown link
+							Configuración
 						</a>
 						<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 							<li><a class="dropdown-item" href="#">Insumo Basicos</a></li>
