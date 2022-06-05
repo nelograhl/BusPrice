@@ -50,7 +50,7 @@ class RegistropController extends Controller
      */
     public function show(Registrop $registrop)
     {
-        //
+        return response()->json($registrop);
     }
 
     /**
@@ -73,7 +73,10 @@ class RegistropController extends Controller
      */
     public function update(Request $request, Registrop $registrop)
     {
-        //
+        $registrop->fill($request->post())->save();
+        return response()->json([
+            'registro' => $registrop
+        ]); 
     }
 
     /**
@@ -84,6 +87,9 @@ class RegistropController extends Controller
      */
     public function destroy(Registrop $registrop)
     {
-        //
+        $registrop->delete();
+        response()->json([
+            'mensaje' => 'Registro eliminado exitosamente'
+        ]);
     }
 }

@@ -84,7 +84,7 @@
         eliminar(id) {
             if (confirm("¿Estás seguro que quieres eliminar este registro?")) {
                 this.axios
-                    .delete(`/api/buses/${id}`)
+                    .delete(`/api/registrosp/${id}`)
                     .then((response) => {
                         this.cargar();
                     })

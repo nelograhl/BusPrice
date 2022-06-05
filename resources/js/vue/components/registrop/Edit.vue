@@ -59,8 +59,7 @@
             async load(){
                 await this.axios.get(`/api/registrosp/${this.$route.params.id}`)
                     .then(response => {
-                        const { id , fecha , cantidadt , cantidadd } = response.data;
-                        this.registro.id = id;
+                        const { fecha , cantidadt , cantidadd } = response.data;
                         this.registro.fecha = fecha;
                         this.registro.cantidadt = cantidadt;
                         this.registro.cantidadd = cantidadd;
@@ -73,7 +72,7 @@
             async actualizar(){
                 await this.axios.put(`/api/registrosp/${this.$route.params.id}`, this.registro)
                     .then(response => {
-                        this.$router.push({name:"registrosp"})
+                        this.$router.push({name:"registrop"})
                     })
                     .catch(error =>{
                         console.log(error)
