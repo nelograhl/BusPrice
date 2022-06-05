@@ -2,17 +2,23 @@
     <div class="container">
         <div class="row card">
             <div class="col-12 card-header">
-                <h1>Editar Registro</h1>
+                <h1>Editar Tramo</h1>
             </div>
             <div class="col-12 card-body">
                 <form @submit.prevent="actualizar">
                     <div class="row">
                         <div class="col-12">
-                            <div class="form-group">
+                             <div class="form-group">
                                 <label for="descrpicion" class="form-label">
-                                    Descripción del mantenimiento
+                                    Descripción del recorrido
                                 </label>
                                 <input type="text" v-model="registro.descripcion" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="descrpicion" class="form-label">
+                                    Distancia recorrida
+                                </label>
+                                <input type="number" v-model="registro.recorridokm" class="form-control">
                             </div>
                         </div>
                         <div class="row">
@@ -34,7 +40,8 @@
         data(){
             return {
                registro: {
-                    descripcion: ""
+                    descripcion: "",
+                    recorridokm: ""
                 }
             }
         },
@@ -43,10 +50,12 @@
         },
         methods: {
             async load(){
-                await this.axios.get(`/api/tipomantenimientos/${this.$route.params.id}`)
+                await this.axios.get(`/api/tramos/${this.$route.params.id}`)
                     .then(response => {
-                        const { descripcion} = response.data;
+                        const {descripcion, recorridokm, estado} = response.data;
                         this.registro.descripcion = descripcion;
+                        this.registro.recorridokm = recorridokm;
+                        this.registro.estado = estado;
                     })
                     .catch(error =>{
                         console.log(error)
@@ -54,9 +63,9 @@
 
             },
             async actualizar(){
-                await this.axios.put(`/api/tipomantenimientos/${this.$route.params.id}`, this.registro)
+                await this.axios.put(`/api/tramos/${this.$route.params.id}`, this.registro)
                     .then(response => {
-                        this.$router.push({name:"tipomant"})
+                        this.$router.push({name:"tramos"})
                     })
                     .catch(error =>{
                         console.log(error)

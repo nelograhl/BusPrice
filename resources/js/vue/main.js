@@ -29,6 +29,11 @@ const TipoMant = () => import('./components/tipomant/List.vue')
 const TipoMantCreate = () => import('./components/tipomant/Create.vue')
 const TipoMantEdit = () => import('./components/tipomant/Edit.vue')
 
+/* Tramos components */
+const Tramos = () => import('./components/tramo/List.vue')
+const TramoCreate = () => import('./components/tramo/Create.vue')
+const TramoEdit = () => import('./components/tramo/Edit.vue')
+
 /* */
 const Config = () => import('./components/config/Config.vue')
 
@@ -87,6 +92,21 @@ const routes = [
         name: 'editarTipoMant',
         path: '/tipomant/edit',
         component: TipoMantEdit
+    },
+    {
+        name: 'tramos',
+        path: '/tramos',
+        component: Tramos
+    },
+    {
+        name: 'crearTramo',
+        path: '/tramos/create',
+        component: TramoCreate
+    },
+    {
+        name: 'editarTramo',
+        path: '/tramos/edit',
+        component: TramoEdit
     }
 ];
 

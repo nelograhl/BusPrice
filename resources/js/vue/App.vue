@@ -22,6 +22,9 @@
 					<li class="nav-item">
 						<router-link class="nav-link" to="/tipomant">Mantenimientos</router-link>
 					</li>
+					<li class="nav-item">
+						<router-link class="nav-link" to="/tramos">Tramos</router-link>
+					</li>
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 							Dropdown link

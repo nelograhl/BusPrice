@@ -2,21 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\TipoMantenimiento;
+use App\Models\Tramo;
 use Illuminate\Http\Request;
 
-class TipoMantenimientoController extends Controller
+class TramoController extends Controller
 {
-    
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(){
-        $registros = TipoMantenimiento::all();
+    public function index()
+    {
+        $registros = Tramo::where("estado","Activo")->get();
         return response()->json($registros);
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -35,30 +36,30 @@ class TipoMantenimientoController extends Controller
      */
     public function store(Request $request)
     {
-        $registros = TipoMantenimiento::create($request->post());
+        $registros = Tramo::create($request->post());
         return response()->json([
-            'tipomant' => $registros
+            'tramo' => $registros
         ]);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\TipoMantenimiento  $tipoMantenimiento
+     * @param  \App\Models\tramo  $tramo
      * @return \Illuminate\Http\Response
      */
-    public function show(TipoMantenimiento $tipomantenimiento)
+    public function show(Tramo $tramo)
     {
-        return response()->json($tipomantenimiento);
+        return response()->json($tramo);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\TipoMantenimiento  $tipoMantenimiento
+     * @param  \App\Models\tramo  $tramo
      * @return \Illuminate\Http\Response
      */
-    public function edit(TipoMantenimiento $tipoMantenimiento)
+    public function edit(Tramo $tramo)
     {
         //
     }
@@ -67,26 +68,27 @@ class TipoMantenimientoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\TipoMantenimiento  $tipoMantenimiento
+     * @param  \App\Models\tramo  $tramo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TipoMantenimiento $tipomantenimiento)
+    public function update(Request $request, Tramo $tramo)
     {
-        $tipomantenimiento->fill($request->post())->save();
+        $tramo->fill($request->post())->save();
         return response()->json([
-            'registros' => $tipomantenimiento
+            'tramo' => $tramo
         ]);  
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\TipoMantenimiento  $tipoMantenimiento
+     * @param  \App\Models\tramo  $tramo
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TipoMantenimiento $tipomantenimiento)
+    public function destroy(Tramo $tramo)
     {
-        $tipomantenimiento->delete();
+        $tramo->estado = "Eliminado";
+        $tramo->save();
         response()->json([
             'mensaje' => 'Registro eliminado exitosamente'
         ]);

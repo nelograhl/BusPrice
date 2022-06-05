@@ -48,9 +48,9 @@ class RegistropController extends Controller
      * @param  \App\Models\Registrop  $registrop
      * @return \Illuminate\Http\Response
      */
-    public function show(Registrop $registrop)
+    public function show(Registrop $registrosp)
     {
-        return response()->json($registrop);
+        return response()->json($registrosp);
     }
 
     /**
@@ -71,11 +71,11 @@ class RegistropController extends Controller
      * @param  \App\Models\Registrop  $registrop
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Registrop $registrop)
+    public function update(Request $request, Registrop $registrosp)
     {
-        $registrop->fill($request->post())->save();
+        $registrosp->fill($request->post())->save();
         return response()->json([
-            'registro' => $registrop
+            'registro' => $registrosp
         ]); 
     }
 
@@ -85,9 +85,9 @@ class RegistropController extends Controller
      * @param  \App\Models\Registrop  $registrop
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Registrop $registrop)
+    public function destroy(Registrop $registrosp)
     {
-        $registrop->delete();
+        $registrosp->delete();
         response()->json([
             'mensaje' => 'Registro eliminado exitosamente'
         ]);
