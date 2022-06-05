@@ -7,7 +7,7 @@
             <div class="col-12 card-body">
                 <p>
                     <router-link class="btn btn-info" :to="{ name: 'crearRegistro' }"><span
-                            class="fas fa-plus-circle"></span>Nuevo</router-link>
+                            class="fas fa-plus-circle"></span> Nuevo</router-link>
                 </p>
                 <input class="form-control" onkeyup="registros.fnFilter(this.value)" />
                 <table class="table table-bordered" id="tabla">

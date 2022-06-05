@@ -2,7 +2,12 @@
     <div class="container">
         <div class="row card">
             <div class="col-12 card-header">
-                <h1>Editar Registro</h1>
+                <div class="form-row" >
+                    <div class="col">
+                        <a  href="/registrosp" class="btn btn-info" ><i class="fas fa-angle-left"></i></a>     
+                        <a> <h1 style="display:inline-block; vertical-align:middle;">Editar Registro</h1></a>                
+                    </div>                                                       
+                </div> 
             </div>
             <div class="col-12 card-body">
                 <form @submit.prevent="actualizar">

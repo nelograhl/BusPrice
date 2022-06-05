@@ -15,10 +15,10 @@
                         <tr>
                             <th style="width: 10%">C&oacute;digo</th>
                             <th style="width: 25%">Combustible</th>
-                            <th style="width: 25%">Lubricantes</th>
-                            <th style="width: 25%">Neumaticos</th>
+                            <th style="width: 15%">Lubricantes</th>
+                            <th style="width: 15%">Neumaticos</th>
                             <th style="width: 25%">Repuestos</th>
-                            <th style="width: 25%">Depreciacion Vehiculo</th>
+                            <th style="width: 45%">Depreciacion Vehiculo</th>
                             <th style="text-align: center; width: 10%">
                                 Acciones
                             </th>
