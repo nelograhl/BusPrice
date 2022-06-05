@@ -6,6 +6,7 @@ use App\Http\Controllers\ConfigController;
 use App\Http\Controllers\RegistropController;
 use App\Http\Controllers\TipoMantenimientoController;
 use App\Http\Controllers\TramoController;
+use App\Http\Controllers\CostosController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -30,3 +31,5 @@ Route::resource('registrosp', RegistropController::class);
 Route::resource('tipomantenimientos', TipoMantenimientoController::class);
 Route::resource('tramos', TramoController::class);
 Route::resource('coeficientes', CoefConsumoController::class);
+Route::resource('costos', CostosController::class);
+

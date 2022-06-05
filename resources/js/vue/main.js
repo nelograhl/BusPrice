@@ -18,7 +18,6 @@ const Buses = () => import('./components/bus/Buses.vue')
 const Create = () => import('./components/bus/Create.vue')
 const Edit = () => import('./components/bus/Edit.vue')
 
-
 /* Registros components */
 const Registros = () => import('./components/registrop/List.vue')
 const RegistroCreate = () => import('./components/registrop/Create.vue')
@@ -41,6 +40,10 @@ const CoeficienteEdit = () => import('./components/coefconsumo/Edit.vue')
 
 /* */
 const Config = () => import('./components/config/Config.vue')
+
+/* Costos components*/
+const Costos = () => import('./components/costos/Costos.vue')
+
 
 const routes = [
     {
@@ -127,6 +130,11 @@ const routes = [
         name: 'editarCoeficiente',
         path: '/coeficientes/edit',
         component: CoeficienteEdit
+    },
+    {
+        name: 'costos',
+        path: '/costos',
+        component: Costos
     }
 ];
 

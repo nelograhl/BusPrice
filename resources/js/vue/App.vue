@@ -27,19 +27,24 @@
 					</li>
 					<li class="nav-item">
 						<router-link class="nav-link" to="/coeficientes">Coeficientes de Consumo</router-link>
+						<router-link class="nav-link" to="/costos">Costos Variables</router-link>
 					</li>
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 							Dropdown link
 						</a>
 						<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-							<li><a class="dropdown-item" href="#">Action</a></li>
-							<li><a class="dropdown-item" href="#">Another action</a></li>
-							<li><a class="dropdown-item" href="#">Something else here</a></li>
+							<li><a class="dropdown-item" href="#">Insumo Basicos</a></li>
+							<li><a class="dropdown-item" href="#">Datos Operacionales</a></li>
+							<li><a class="dropdown-item" href="#">Costos Variables</a></li>
+							<li><a class="dropdown-item" href="#">Costo Fijo</a></li>
 						</ul>
 					</li>
 					<li class="nav-item">
 						<router-link class="nav-link" to="/config">Configuración</router-link>
+					</li>
+					<li class="nav-item">
+						<router-link class="nav-link" to="/config">Calculo Tarifa</router-link>
 					</li>
 				</ul>
 				</div>
