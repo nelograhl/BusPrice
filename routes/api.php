@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BusController;
+use App\Http\Controllers\CoefConsumoController;
 use App\Http\Controllers\ConfigController;
 use App\Http\Controllers\RegistropController;
 use App\Http\Controllers\TipoMantenimientoController;
@@ -28,3 +29,4 @@ Route::resource('config', ConfigController::class);
 Route::resource('registrosp', RegistropController::class);
 Route::resource('tipomantenimientos', TipoMantenimientoController::class);
 Route::resource('tramos', TramoController::class);
+Route::resource('coeficientes', CoefConsumoController::class);
