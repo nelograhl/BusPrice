@@ -4,47 +4,47 @@
             <div class="card-header text-left">
                 <h1>Datos Operacionales</h1>                
             </div>
-            <div class="col-12 card-body">
+            <div class="col-12 card-body" >
                 <form @submit.prevent="actualizar">
                     <div class="row">
                         <div class="col-12">
                             <div class="form-group">
                                 <label for="descrpicion" class="form-label">
-                                    Total de Habitantes 
+                                    Población Total
                                 </label>
                                 <input type="number"  v-model="registro.totalhabitantes" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="descrpicion" class="form-label">
-                                    Total de Pasajeros
+                                    Total de Pasajeros (38% pob. total)
                                 </label>
                                 <input type="number" v-model="registro.totalpasajeros" class="form-control">
                             </div>       
-                            <div class="form-group">
+                            <div class="form-group" style="display:none;">
                                 <label for="descrpicion" class="form-label">
                                     Flota Total
                                 </label>
                                 <input type="number"  v-model="registro.totalflota" class="form-control">
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" style="display:none;">
                                 <label for="descrpicion" class="form-label">
                                     Kilometraje diario
                                 </label>
                                 <input type="number "  v-model="registro.kilometrajediario" class="form-control">
                             </div>      
-                            <div class="form-group">
+                            <div class="form-group" style="display:none;">
                                 <label for="descrpicion" class="form-label">
                                     Recorrido de vehiculo por día (R.P.D. - km/veh/día)
                                 </label>
                                 <input type="number"  v-model="registro.rpd" class="form-control">
                             </div>  
-                            <div class="form-group">
+                            <div class="form-group" style="display:none;">
                                 <label for="descrpicion" class="form-label">
                                     Recorrido de vehiculo por mes (R.P.M. - km/veh/mes)
                                 </label>
                                 <input type="number"  v-model="registro.rpd" class="form-control">
                             </div>  
-                             <div class="form-group">
+                             <div class="form-group" style="display:none;">
                                 <label for="descrpicion" class="form-label">
                                     Indice de Pasajeros por KM (I.P.K. - pasajeros/km)
                                 </label>

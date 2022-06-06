@@ -24,8 +24,8 @@
 							<li ><a class="dropdown-item" href="/tramos">Tramos</a></li>							
 							<li><a class="dropdown-item" href="/insumos">Insumos Básicos</a></li>
 							<li><a class="dropdown-item" href="/coeficientes">Coeficientes de Consumo</a></li>
-							<li><a class="dropdown-item" href="/config">Configuración Buses</a></li>
-							<li><a class="dropdown-item" href="/datosoperacionales">Datos Operacionales</a></li>
+							<li style="display:none;"><a class="dropdown-item" href="/config">Configuración Buses</a></li>
+							<li style="display:none;"><a class="dropdown-item" href="/datosoperacionales">Datos Operacionales</a></li>
 							<li><a class="dropdown-item" href="/tasasimpuestos">Tasas e Impuestos</a></li>
 						</ul>
 					</li>
