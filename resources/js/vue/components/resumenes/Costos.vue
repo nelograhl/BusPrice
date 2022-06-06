@@ -310,10 +310,10 @@
                 return Number(this.totalKm * 108 / 50).toLocaleString() + " Km"
             },
             remuneracionDiaria(){
-                return Number(this.config.sueldobasico * 1.39 / 30).toLocaleString() + " Gs"
+                return Number(2 * this.config.sueldobasico * 1.39 / 30).toLocaleString() + " Gs"
             },
             totalRemuneracion(){
-                return this.config.sueldobasico * 1.39 / 30 * 50
+                return 2 * this.config.sueldobasico * 1.39 / 30 * 50
             },
             neumaticoDiaria(){
                 return Number(7 * this.totalKm * 108 / this.coeficientes.neumaticos).toLocaleString() + " Un"

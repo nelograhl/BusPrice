@@ -53,6 +53,7 @@ const Insumos = () => import('./components/insumos/Insumos.vue')
 
 /* Resumenes*/
 const ResumenCostos = () => import('./components/resumenes/Costos.vue')
+const ResumenTarifa = () => import('./components/resumenes/Tarifa.vue')
 
 
 
@@ -156,6 +157,11 @@ const routes = [
         name: 'resumenCostos',
         path: '/resumenes/costos',
         component: ResumenCostos
+    },
+    {
+        name: 'resumenTafifa',
+        path: '/resumenes/tarifa',
+        component: ResumenTarifa
     }
 ];
 

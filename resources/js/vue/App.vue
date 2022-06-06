@@ -34,9 +34,10 @@
 							Resúmenes
 						</a>
 						<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">								
-							<li><router-link class="dropdown-item" to="/resumenes/costos">Resumen de costos totales</router-link></li>
+							<li><router-link class="dropdown-item" to="/resumenes/costos">Resumen total de costos</router-link></li>
 							<li><a class="dropdown-item" href="/costos">Resumen de costos variables</a></li>
 							<li  style="display:none;" ><a class="dropdown-item" href="#">Costo Fijo</a></li>
+							<li><router-link class="dropdown-item" to="/resumenes/tarifa">Calculo de Tarifa</router-link></li>
 						</ul>
 					</li>
 					<li class="nav-item">
