@@ -42,6 +42,10 @@
 							<li><a class="dropdown-item" href="/datosoperacionales">Datos Operacionales</a></li>
 							<li><a class="dropdown-item" href="/costos">Costos Variables</a></li>
 							<li><a class="dropdown-item" href="/insumos">Insumos Básicos</a></li>
+							<li><router-link class="dropdown-item" to="/resumenes/costos">Tabla de Costos</router-link></li>
+							<li><a class="dropdown-item" href="#">Datos Operacionales</a></li>
+							<li><a class="dropdown-item" href="#">Costos Variables</a></li>
+							<li><a class="dropdown-item" href="#">Costo Fijo</a></li>
 						</ul>
 					</li>
 					<li class="nav-item">

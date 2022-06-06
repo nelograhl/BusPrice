@@ -51,6 +51,10 @@ const Costos = () => import('./components/costos/Costos.vue')
 /* Insumos components*/
 const Insumos = () => import('./components/insumos/Insumos.vue')
 
+/* Resumenes*/
+const ResumenCostos = () => import('./components/resumenes/Costos.vue')
+
+
 
 const routes = [
     {
@@ -147,6 +151,11 @@ const routes = [
         name: 'insumos',
         path: '/insumos',
         component: Insumos
+    },
+    {
+        name: 'resumenCostos',
+        path: '/resumenes/costos',
+        component: ResumenCostos
     }
 ];
 
