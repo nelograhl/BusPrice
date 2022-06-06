@@ -77,8 +77,60 @@
                             </div>
                         </div>
                     </div>
+                    
                     <div class="row">
-                        <div class="col-6"></div>
+                        <div class="col-2">
+                            <div class="form-group">
+                                <label for="valorvehiculo" class="form-label">
+                                    Desgaste Neumático/día
+                                </label>
+                                <input :value="neumaticoDiaria" class="form-control" readonly>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-group">
+                                <label for="combustible" class="form-label">
+                                    Costo Neumático/día
+                                </label>
+                                <input :value="money(costoNeumaticoDiario)"  class="form-control" readonly>
+                            </div>
+                        </div>
+                        <div class="col-2"></div>
+                        <div class="col-2">
+                            <div class="form-group">
+                                <label for="lubricante" class="form-label">
+                                    Depreciación Vh/día
+                                </label>
+                                <input :value="vehiculoDiaria"  class="form-control" readonly>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-group">
+                                <label for="lubricante" class="form-label">
+                                    Costo depreciación/día
+                                </label>
+                                <input :value="money(costoVehiculoDiario)"  class="form-control" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-2">
+                            <div class="form-group">
+                                <label for="valorvehiculo" class="form-label">
+                                    Impuestos / día
+                                </label>
+                                <input :value="money(impuestoDiario)" class="form-control" readonly>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-group">
+                                <label for="combustible" class="form-label">
+                                    Seguros/día
+                                </label>
+                                <input :value="money(seguroDiario)"  class="form-control" readonly>
+                            </div>
+                        </div>
+                        <div class="col-2"></div>
                         <div class="col-2">
                             <div class="form-group">
                                 <label for="lubricante" class="form-label">
@@ -93,6 +145,33 @@
                                     Total Remuneración/día
                                 </label>
                                 <input :value="money(totalRemuneracion)"  class="form-control" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-2">
+                            <div class="form-group">
+                                <label for="valorvehiculo" class="form-label">
+                                    Repuestos / día
+                                </label>
+                                <input :value="money(repuestoDiario)" class="form-control" readonly>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="form-group">
+                                <label for="combustible" class="form-label">
+                                    Beneficio Empresarial/día
+                                </label>
+                                <input :value="money(beneficioDiario)"  class="form-control" readonly>
+                            </div>
+                        </div>
+                        <div class="col-4"></div>
+                        <div class="col-2">
+                            <div class="form-group text-bold">
+                                <label for="combustible" class="form-label">
+                                    Total Costo/día
+                                </label>
+                                <input :value="money(totalCostoDiario + beneficioDiario)"  class="form-control" readonly>
                             </div>
                         </div>
                     </div>
@@ -183,6 +262,31 @@
                     precioub: "",
                     utilidad: "",
                     sueldobasico: ""
+                },
+                impuestos: {
+                    desinfeccion: "",
+                    canon: "",
+                    inspeccion: "",
+                    patentemunicipal: "",
+                    patentecomercial: ""
+                },
+                insumos: {
+                    dolar: "",
+                    combustible: "",
+                    neumaticos: "",
+                    cubiertas: "",
+                    camaras: "",
+                    protectores: "",
+                    vidautil: "",
+                    recapado: "",
+                    norecap: "",
+                    chasis: "",
+                    carroceria: "",
+                    salariochofer: "",
+                    salariofiscal: "",
+                    salariojefe: "",
+                    segurop: "",
+                    segurov: ""
                 }
             }
         },
@@ -211,12 +315,62 @@
             totalRemuneracion(){
                 return this.config.sueldobasico * 1.39 / 30 * 50
             },
+            neumaticoDiaria(){
+                return Number(7 * this.totalKm * 108 / this.coeficientes.neumaticos).toLocaleString() + " Un"
+            },
+            costoNeumaticoDiario(){
+                return 7 * this.totalKm * 108 * this.costo.neumaticos / this.coeficientes.neumaticos
+            },
+            vehiculoDiaria(){
+                return Number(50 * this.coeficientes.depreciacionvehiculo).toLocaleString() + " Un"
+            },
+            costoVehiculoDiario(){
+                return 50 * this.costo.valorvehiculo * this.coeficientes.depreciacionvehiculo
+            },
+            impuestoDiario(){
+                const { desinfeccion, canon , inspeccion, patentemunicipal, patentecomercial } = this.impuestos;
+                return 50 * (desinfeccion + canon + inspeccion + patentemunicipal + patentecomercial ) / 365;
+                    
+            },
+            seguroDiario(){
+                const { segurop, segurov  } = this.insumos;
+                return 12 * 50 * (segurop + segurov ) / 365;
+                    
+            },
+            repuestoDiario(){
+                return this.totalKm * 108 * this.coeficientes.repuestos * this.costo.valorvehiculo / ((this.totalKm * 108 /50) * 30);
+            },
+            totalCostoDiario(){
+                return this.costoCombustible
+                                + this.costoLubricante
+                                + this.totalRemuneracion
+                                + this.costoNeumaticoDiario
+                                + this.costoVehiculoDiario
+                                + this.impuestoDiario
+                                + this.seguroDiario
+                                + this.repuestoDiario
+            },
+            beneficioDiario(){
+                const totalCosto = this.totalCostoDiario * 100 / (100 - this.config.utilidad)
+                return totalCosto * this.config.utilidad / 100;
+                    
+            },
             chartData() {
                     return {
-                        labels: [ 'Combustible', 'Lubricantes', 'Remuneraciones' ],
+                        labels: [ 'Combustible', 'Lubricantes', 'Remuneraciones', 'Neumáticos', 'Vehiculo', 'Impuestos','Repuestos', 'Seguros', 'Beneficio Empresarial' ],
                         datasets: [ { 
-                            backgroundColor: ['#41B883', '#E46651', '#00D8FF'/*, '#DD1B16'*/],
-                            data: [this.costoCombustible, this.costoLubricante, this.totalRemuneracion] } 
+                            backgroundColor: ['#41B883', '#E46651', '#00D8FF', '#F1C40F', '#2874A6', '#884EA0','#454545', '#F9E79F', '#00FF00'],
+                            data: [
+                                this.costoCombustible, 
+                                this.costoLubricante, 
+                                this.totalRemuneracion, 
+                                this.costoNeumaticoDiario,
+                                this.costoVehiculoDiario,
+                                this.impuestoDiario,
+                                this.repuestoDiario,
+                                this.seguroDiario,
+                                this.beneficioDiario
+                            ] } 
                         ]
                     }
             },
@@ -285,6 +439,21 @@
                     .catch(error =>{
                         console.log(error)
                     });
+                await this.axios.get(`/api/tasasimpuestos`)
+                    .then(response => {
+                        this.impuestos = response.data;
+                    })
+                    .catch(error =>{
+                        console.log(error)
+                    });
+                    
+                await this.axios.get('/api/insumos')
+                    .then(response => {
+                        this.insumos = response.data;
+                    })
+                    .catch(error =>{
+                        console.log(error)
+                    })
 
             }
         }
