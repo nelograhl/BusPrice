@@ -15,6 +15,7 @@ class CreateConfigTable extends Migration
     {
         Schema::create('config', function (Blueprint $table) {
             $table->id();
+            $table->integer("cantidad");
             $table->integer("precionb");
             $table->integer("precioub");
             $table->integer("utilidad");

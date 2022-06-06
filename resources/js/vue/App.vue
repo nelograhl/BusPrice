@@ -39,6 +39,7 @@
 							Configuración
 						</a>
 						<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+							<li><a class="dropdown-item" href="/config">Configuración Buses</a></li>
 							<li><a class="dropdown-item" href="/datosoperacionales">Datos Operacionales</a></li>
 							<li><a class="dropdown-item" href="/costos">Costos Variables</a></li>
 							<li><a class="dropdown-item" href="/insumos">Insumos Básicos</a></li>
@@ -47,9 +48,6 @@
 							<li><a class="dropdown-item" href="#">Costos Variables</a></li>
 							<li><a class="dropdown-item" href="#">Costo Fijo</a></li>
 						</ul>
-					</li>
-					<li class="nav-item">
-						<router-link class="nav-link" to="/config">Configuración</router-link>
 					</li>
 					<li class="nav-item">
 						<router-link class="nav-link" to="/config">Calculo Tarifa</router-link>

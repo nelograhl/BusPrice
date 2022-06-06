@@ -17,6 +17,7 @@ class ConfigController extends Controller
         $config = Config::find(1);
         if(empty($config)){
             $config = Config::create([
+                "cantidad" => 0,
                 "precionb" => 0,
                 "precioub" => 0,
                 "utilidad" => 0,

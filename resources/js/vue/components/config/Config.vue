@@ -9,6 +9,12 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="form-group">
+                                <label for="cantidad" class="form-label">
+                                    Cantidad buses
+                                </label>
+                                <input type="text" v-model="config.cantidad" class="form-control">
+                            </div>
+                            <div class="form-group">
                                 <label for="precionb" class="form-label">
                                     Precio buses nuevos
                                 </label>
@@ -53,6 +59,7 @@
         data(){
             return {
                 config: {
+                    cantidad: "",
                     precionb: "",
                     precioub: "",
                     utilidad: "",
@@ -68,8 +75,9 @@
                 await this.axios.get('/api/config')
                     .then(response => {
                         console.log(response);
-                        const { precionb , precioub , utilidad , sueldobasico } = response.data;
+                        const { cantidad, precionb , precioub , utilidad , sueldobasico } = response.data;
                         console.log(" precio", precionb);
+                        this.config.cantidad = cantidad;
                         this.config.precionb = precionb;
                         this.config.precioub = precioub;
                         this.config.utilidad = utilidad;
