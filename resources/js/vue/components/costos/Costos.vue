@@ -67,7 +67,6 @@
             async load(){
                 await this.axios.get('/api/costos')
                     .then(response => {
-                        console.log(response);
                         const { valorvehiculo , combustible , neumaticos , lubricante } = response.data;
                         this.costo.valorvehiculo = valorvehiculo;
                         this.costo.combustible = combustible;

@@ -29,6 +29,9 @@
 						<router-link class="nav-link" to="/coeficientes">Coeficientes de Consumo</router-link>
 					</li>
 					<li class="nav-item">
+						<router-link class="nav-link" to="/tasasimpuestos">Tasas e Impuestos</router-link>
+					</li>
+					<li class="nav-item">
 						<router-link class="nav-link" to="/costos">Costos Variables</router-link>
 					</li>
 					<li class="nav-item dropdown">
@@ -36,9 +39,9 @@
 							Configuración
 						</a>
 						<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-							<li><a class="dropdown-item" href="#">Insumo Basicos</a></li>
-							<li><a class="dropdown-item" href="#">Datos Operacionales</a></li>
-							<li><a class="dropdown-item" href="#">Costos Variables</a></li>
+							<li><a class="dropdown-item" href="#">Insumos Basicos</a></li>
+							<li><a class="dropdown-item" href="/datosoperacionales">Datos Operacionales</a></li>
+							<li><a class="dropdown-item" href="/costos">Costos Variables</a></li>
 							<li><a class="dropdown-item" href="#">Costo Fijo</a></li>
 						</ul>
 					</li>

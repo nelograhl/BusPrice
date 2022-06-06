@@ -35,8 +35,12 @@ const TramoEdit = () => import('./components/tramo/Edit.vue')
 
 /* Coeficientes components */
 const Coeficientes = () => import('./components/coefconsumo/Coefconsumo.vue')
-//const CoeficienteCreate = () => import('./components/coefconsumo/Create.vue')
-//const CoeficienteEdit = () => import('./components/coefconsumo/Edit.vue')
+
+/* Tasas e Impuestos components */
+const TasasImpuestos = () => import('./components/tasasimpuestos/Tasasimpuestos.vue')
+
+/* Datos Operacionales components */
+const DatosOperacionales = () => import('./components/datosoperacionales/DatosOperacionales.vue')
 
 /* */
 const Config = () => import('./components/config/Config.vue')
@@ -125,6 +129,16 @@ const routes = [
         name: 'costos',
         path: '/costos',
         component: Costos
+    },    
+    {
+        name: 'tasasimpuestos',
+        path: '/tasasimpuestos',
+        component: TasasImpuestos
+    },    
+    {
+        name: 'datosoperacionales',
+        path: '/datosoperacionales',
+        component: DatosOperacionales
     }
 ];
 

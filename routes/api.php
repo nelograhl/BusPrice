@@ -7,6 +7,8 @@ use App\Http\Controllers\RegistropController;
 use App\Http\Controllers\TipoMantenimientoController;
 use App\Http\Controllers\TramoController;
 use App\Http\Controllers\CostosController;
+use App\Http\Controllers\DatosOperacionalesController;
+use App\Http\Controllers\TasasImpuestosController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -32,4 +34,6 @@ Route::resource('tipomantenimientos', TipoMantenimientoController::class);
 Route::resource('tramos', TramoController::class);
 Route::resource('coeficientes', CoefConsumoController::class);
 Route::resource('costos', CostosController::class);
+Route::resource('tasasimpuestos', TasasImpuestosController::class);
+Route::resource('datosoperacionales', DatosOperacionalesController::class);
 
