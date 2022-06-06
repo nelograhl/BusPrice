@@ -14,8 +14,19 @@ class CoefConsumoController extends Controller
      */
     public function index()
     {
-        $registros = CoefConsumo::all();
+        $registros = CoefConsumo::find(1);
+        if(empty($registros)){
+            $registros = CoefConsumo::create([
+                "combustible" => 0,
+                "lubricante" => 0,
+                "neumaticos" => 0,
+                "repuestos" => 0,
+                "depreciacionvehiculo" => 0
+            ]);
+        }
         return response()->json($registros);
+        #$registros = CoefConsumo::all();
+        #return response()->json($registros);
     }
 
     /**
@@ -36,10 +47,7 @@ class CoefConsumoController extends Controller
      */
     public function store(Request $request)
     {
-        $registros = CoefConsumo::create($request->post());
-        return response()->json([
-            'coeficientes' => $registros
-        ]);
+        //
     }
 
     /**
@@ -50,7 +58,7 @@ class CoefConsumoController extends Controller
      */
     public function show(CoefConsumo $coeficiente)
     {
-        return response()->json($coeficiente);
+        //
     }
 
     /**
@@ -75,7 +83,7 @@ class CoefConsumoController extends Controller
     {
         $coeficiente->fill($request->post())->save();
         return response()->json([
-            'coeficientes' => $coeficiente
+            'coeficiente' => $coeficiente
         ]); 
     }
 
@@ -87,9 +95,6 @@ class CoefConsumoController extends Controller
      */
     public function destroy(CoefConsumo $coeficiente)
     {
-        $coeficiente->delete();
-        response()->json([
-            'mensaje' => 'Registro eliminado exitosamente'
-        ]);
+        //
     }
 }

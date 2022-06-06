@@ -34,9 +34,9 @@ const TramoCreate = () => import('./components/tramo/Create.vue')
 const TramoEdit = () => import('./components/tramo/Edit.vue')
 
 /* Coeficientes components */
-const Coeficientes = () => import('./components/coefconsumo/List.vue')
-const CoeficienteCreate = () => import('./components/coefconsumo/Create.vue')
-const CoeficienteEdit = () => import('./components/coefconsumo/Edit.vue')
+const Coeficientes = () => import('./components/coefconsumo/Coefconsumo.vue')
+//const CoeficienteCreate = () => import('./components/coefconsumo/Create.vue')
+//const CoeficienteEdit = () => import('./components/coefconsumo/Edit.vue')
 
 /* */
 const Config = () => import('./components/config/Config.vue')
@@ -120,17 +120,7 @@ const routes = [
         name: 'coeficientes',
         path: '/coeficientes',
         component: Coeficientes
-    },
-    {
-        name: 'crearCoeficiente',
-        path: '/coeficientes/create',
-        component: CoeficienteCreate
-    },
-    {
-        name: 'editarCoeficiente',
-        path: '/coeficientes/edit',
-        component: CoeficienteEdit
-    },
+    },    
     {
         name: 'costos',
         path: '/costos',

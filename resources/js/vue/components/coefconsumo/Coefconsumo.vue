@@ -1,35 +1,30 @@
 <template>
     <div class="container">
-        <div class="card">
-            <div class="card-header">
-                <div class="form-row" >
-                    <div class="col">
-                        <a  href="/coeficientes" class="btn btn-info" ><i class="fas fa-angle-left"></i></a>     
-                        <a> <h1 style="display:inline-block; vertical-align:middle;">Nuevo Coeficiente</h1></a>                
-                    </div>                                                       
-                </div>   
+        <div class="row card">
+            <div class="card-header text-left">
+                <h1>Coeficientes de Consumo</h1>                
             </div>
-            <div class="card-body">
-                <form @submit.prevent="guardar">
+            <div class="col-12 card-body">
+                <form @submit.prevent="actualizar">
                     <div class="row">
                         <div class="col-12">
                             <div class="form-group">
                                 <label for="descrpicion" class="form-label">
-                                    Coef. de Combustible
+                                    Consumo de Combustible (lts/km)
                                 </label>
                                 <input type="number" step="0.01" v-model="registro.combustible" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="descrpicion" class="form-label">
-                                    Coef. de Lubricantes
+                                    Consumo de Lubricantes (lts/km)
                                 </label>
                                 <input type="number" step="0.01" v-model="registro.lubricante" class="form-control">
                             </div>       
                             <div class="form-group">
                                 <label for="descrpicion" class="form-label">
-                                    Coef. de Neumaticos
+                                    Coef. de Neumaticos (km/neumatico)
                                 </label>
-                                <input type="number" step="0.01" v-model="registro.neumaticos" class="form-control">
+                                <input type="number" step="" v-model="registro.neumaticos" class="form-control">
                             </div>
                             <div class="form-group">
                                 <label for="descrpicion" class="form-label">
@@ -42,11 +37,13 @@
                                     Coef. de Depreciacion de Vehiculo
                                 </label>
                                 <input type="number" step="0.01" v-model="registro.depreciacionvehiculo" class="form-control">
-                            </div>              
-                        </div>                    
-                        <div class="col-12 text-center">
-                            <input type="submit" class="btn btn-outline-success text-center" value="Guardar">
-                        </div>                        
+                            </div>  
+                        </div>
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <input type="submit" class="btn btn-outline-success text-center" value="Guardar">
+                            </div>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -57,10 +54,10 @@
 
 <script>
     export default {
-        name: "registro",
+        name: "Edit",
         data(){
             return {
-                registro: {
+               registro: {
                     combustible: "",
                     lubricante: "",
                     neumaticos: "",
@@ -70,13 +67,28 @@
             }
         },
         mounted(){
-            //this.cargar();
+            this.load();
         },
         methods: {
-            async guardar(){
-                await this.axios.post('/api/coeficientes', this.registro)
+            async load(){
+                await this.axios.get(`/api/coeficientes`)
                     .then(response => {
-                        this.$router.push({name:"coeficientes"})
+                        const {combustible, lubricante, neumaticos, repuestos, depreciacionvehiculo} = response.data;
+                        this.registro.combustible = combustible;
+                        this.registro.lubricante = lubricante;
+                        this.registro.neumaticos = neumaticos;
+                        this.registro.repuestos = repuestos;
+                        this.registro.depreciacionvehiculo = depreciacionvehiculo;
+                    })
+                    .catch(error =>{
+                        console.log(error)
+                    })
+
+            },
+            async actualizar(){
+                await this.axios.put(`/api/coeficientes/1`, this.registro)
+                    .then(response => {
+                        this.$router.push({name:"home"})
                     })
                     .catch(error =>{
                         console.log(error)
