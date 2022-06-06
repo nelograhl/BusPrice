@@ -15,10 +15,10 @@ class CreateCostosTable extends Migration
     {
         Schema::create('costos', function (Blueprint $table) {
             $table->id();
-            $table->integer("valorvehiculo");
             $table->integer("combustible");
+            $table->integer("lubricantes");
             $table->integer("neumaticos");
-            $table->integer("lubricante");
+            $table->integer("repuestos");
             $table->timestamps();
         });
     }

@@ -38,6 +38,7 @@
                                 </label>
                                 <input type="number"  v-model="registro.patentecomercial" class="form-control">
                             </div>  
+                            <hr/>
                         </div>
                         <div class="row">
                             <div class="col-12 text-center">

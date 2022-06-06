@@ -50,6 +50,7 @@
                                 </label>
                                 <input type="number"  v-model="registro.rpd" class="form-control">
                             </div>  
+                            <hr/>
                         </div>
                         <div class="row">
                             <div class="col-12 text-center">

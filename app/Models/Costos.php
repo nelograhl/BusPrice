@@ -10,9 +10,9 @@ class Costos extends Model
     use HasFactory;
     protected $table = "costos";
     protected $fillable = [
-        'valorvehiculo',
         'combustible',
+        'lubricantes',
         'neumaticos',
-        'lubricante'
+        'repuestos'
     ];
 }

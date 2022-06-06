@@ -10,27 +10,27 @@
                         <div class="col-12">
                             <div class="form-group">
                                 <label for="valorvehiculo" class="form-label">
-                                    Valor de vehiculo
+                                   Combustible (Gs/km)
                                 </label>
-                                <input type="numeric" v-model="costo.valorvehiculo" class="form-control">
+                                <input type="numeric" :value="round(combustible)" class="form-control"  readonly>
                             </div>
                             <div class="form-group">
                                 <label for="combustible" class="form-label">
-                                    Precio Combustible
+                                   Lubricantes (Gs/km)
                                 </label>
-                                <input type="numeric" v-model="costo.combustible" class="form-control">
+                                <input type="numeric" :value="round(lubricantes)" class="form-control" readonly>
                             </div>
                             <div class="form-group">
                                 <label for="neumaticos" class="form-label">
-                                    Neumaticos
+                                    Neumaticos (Gs/km)
                                 </label>
-                                <input type="numeric" v-model="costo.neumaticos" class="form-control">
+                                <input type="numeric" :value="round(neumaticos)" class="form-control" readonly>
                             </div>
                             <div class="form-group">
                                 <label for="lubricante" class="form-label">
-                                    Lubricante
+                                    Repuestos y accesorios (Gs/km de la flota)
                                 </label>
-                                <input type="numeric" v-model="costo.lubricante" class="form-control">
+                                <input type="numeric" :value="round(repuestos)" class="form-control" readonly>
                             </div>
                             <hr/>
                         </div>
@@ -53,25 +53,106 @@
         data(){
             return {
                 costo: {
-                    valorvehiculo: "",
+                    combustible: "",
+                    lubricantes: "",
+                    neumaticos: "",
+                    repuestos: ""
+                },
+                coeficientes: {
+                    combustible: "",
+                    lubricante: "",
+                    neumaticos: "",
+                    repuestos: "",
+                    depreciacionvehiculo: ""
+                },
+                insumo: {
+                    dolar: "",
                     combustible: "",
                     neumaticos: "",
-                    lubricante: ""
+                    cubiertas: "",
+                    camaras: "",
+                    protectores: "",
+                    vidautil: "",
+                    recapado: "",
+                    norecap: "",
+                    chasis: "",
+                    carroceria: "",
+                    salariochofer: "",
+                    salariofiscal: "",
+                    salariojefe: "",
+                    segurop: "",
+                    segurov: ""
                 }
+            }
+        },
+        computed: {
+            combustible(){
+                 return Number(this.coeficientes.combustible) * Number(this.insumo.combustible)
+            },
+            lubricantes(){
+                 return Number(this.coeficientes.lubricante) * Number(this.insumo.combustible)
+            },
+            neumaticos(){
+                 return Number(this.insumo.neumaticos)/Number(this.coeficientes.neumaticos)
+            },
+            repuestos(){
+                 return (Number(this.insumo.chasis)+Number(this.insumo.carroceria))*Number(this.coeficientes.repuestos)
             }
         },
         mounted(){
             this.load();
         },
         methods: {
+            round(value){
+                return Number(value).toLocaleString()
+            },
             async load(){
                 await this.axios.get('/api/costos')
                     .then(response => {
-                        const { valorvehiculo , combustible , neumaticos , lubricante } = response.data;
-                        this.costo.valorvehiculo = valorvehiculo;
+                        const { combustible , lubricantes , neumaticos , repuestos } = response.data;
                         this.costo.combustible = combustible;
+                        this.costo.lubricantes = lubricantes;
                         this.costo.neumaticos = neumaticos;
-                        this.costo.lubricante = lubricante;
+                        this.costo.repuestos = repuestos;
+                    })
+                    .catch(error =>{
+                        console.log(error)
+                    })
+                
+                await this.axios.get('/api/insumos')
+                    .then(response => {
+                        const { dolar , combustible , neumaticos , cubiertas , camaras , 
+                        protectores , vidautil , recapado , norecap , chasis , carroceria , 
+                        salariochofer , salariofiscal , salariojefe , segurop , segurov } = response.data;
+                        this.insumo.dolar = dolar;
+                        this.insumo.combustible = combustible;
+                        this.insumo.neumaticos = neumaticos;
+                        this.insumo.cubiertas = cubiertas;
+                        this.insumo.camaras = camaras;
+                        this.insumo.protectores = protectores;
+                        this.insumo.vidautil = vidautil;
+                        this.insumo.recapado = recapado;
+                        this.insumo.norecap = norecap;
+                        this.insumo.chasis = chasis;
+                        this.insumo.carroceria = carroceria;
+                        this.insumo.salariochofer = salariochofer;
+                        this.insumo.salariofiscal = salariofiscal;
+                        this.insumo.salariojefe = salariojefe;
+                        this.insumo.segurop = segurop;
+                        this.insumo.segurov = segurov;
+                    })
+                    .catch(error =>{
+                        console.log(error)
+                    })
+                
+                await this.axios.get(`/api/coeficientes`)
+                    .then(response => {
+                        const {combustible, lubricante, neumaticos, repuestos, depreciacionvehiculo} = response.data;
+                        this.coeficientes.combustible = combustible;
+                        this.coeficientes.lubricante = lubricante;
+                        this.coeficientes.neumaticos = neumaticos;
+                        this.coeficientes.repuestos = repuestos;
+                        this.coeficientes.depreciacionvehiculo = depreciacionvehiculo;
                     })
                     .catch(error =>{
                         console.log(error)

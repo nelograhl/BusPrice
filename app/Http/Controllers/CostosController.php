@@ -17,10 +17,10 @@ class CostosController extends Controller
         $costos = Costos::find(1);
         if(empty($costos)){
             $costos = Costos::create([
-                "valorvehiculo" => 0,
                 "combustible" => 0,
+                "lubricantes" => 0,
                 "neumaticos" => 0,
-                "lubricante" => 0
+                "repuestos" => 0
             ]);
         }
         return response()->json($costos);

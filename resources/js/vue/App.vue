@@ -13,40 +13,30 @@
 					<li class="nav-item">
 						<router-link class="nav-link active" aria-current="page" to="/">Home</router-link>
 					</li>
-					<li class="nav-item">
-						<router-link class="nav-link" to="/registrosp">Registro de Pasajeros</router-link>
-					</li>
-					<li class="nav-item">
-						<router-link class="nav-link" to="/buses">Buses</router-link>
-					</li>
-					<li class="nav-item">
-						<router-link class="nav-link" to="/tipomant">Mantenimientos</router-link>
-					</li>
-					<li class="nav-item">
-						<router-link class="nav-link" to="/tramos">Tramos</router-link>
-					</li>
-					<li class="nav-item">
-						<router-link class="nav-link" to="/coeficientes">Coeficientes de Consumo</router-link>
-					</li>
-					<li class="nav-item">
-						<router-link class="nav-link" to="/tasasimpuestos">Tasas e Impuestos</router-link>
-					</li>
-					<li class="nav-item">
-						<router-link class="nav-link" to="/costos">Costos Variables</router-link>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							Variables
+						</a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+							<li style="display:none;"><a class="dropdown-item" href="/registrosp">Registro de Pasajeros</a></li>
+							<li style="display:none;"><a class="dropdown-item" href="/buses">Buses</a></li>
+							<li style="display:none;"><a class="dropdown-item" href="/tipomant">Mantenimientos</a></li>
+							<li ><a class="dropdown-item" href="/tramos">Tramos</a></li>							
+							<li><a class="dropdown-item" href="/insumos">Insumos Básicos</a></li>
+							<li><a class="dropdown-item" href="/coeficientes">Coeficientes de Consumo</a></li>
+							<li><a class="dropdown-item" href="/config">Configuración Buses</a></li>
+							<li><a class="dropdown-item" href="/datosoperacionales">Datos Operacionales</a></li>
+							<li><a class="dropdown-item" href="/tasasimpuestos">Tasas e Impuestos</a></li>
+						</ul>
 					</li>
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-							Configuración
+							Informes/Resumen
 						</a>
-						<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-							<li><a class="dropdown-item" href="/config">Configuración Buses</a></li>
-							<li><a class="dropdown-item" href="/datosoperacionales">Datos Operacionales</a></li>
-							<li><a class="dropdown-item" href="/costos">Costos Variables</a></li>
-							<li><a class="dropdown-item" href="/insumos">Insumos Básicos</a></li>
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">								
 							<li><router-link class="dropdown-item" to="/resumenes/costos">Tabla de Costos</router-link></li>
-							<li><a class="dropdown-item" href="#">Datos Operacionales</a></li>
-							<li><a class="dropdown-item" href="#">Costos Variables</a></li>
-							<li><a class="dropdown-item" href="#">Costo Fijo</a></li>
+							<li><a class="dropdown-item" href="/costos">Costos Variables</a></li>
+							<li  style="display:none;" ><a class="dropdown-item" href="#">Costo Fijo</a></li>
 						</ul>
 					</li>
 					<li class="nav-item">

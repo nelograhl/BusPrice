@@ -22,7 +22,7 @@
                             </div>       
                             <div class="form-group">
                                 <label for="descrpicion" class="form-label">
-                                    Coef. de Neumaticos (km/neumatico)
+                                    Vida Útil de Neumaticos (Km)
                                 </label>
                                 <input type="number" step="" v-model="registro.neumaticos" class="form-control">
                             </div>
@@ -36,11 +36,12 @@
                                 <label for="descrpicion" class="form-label">
                                     Coef. de Depreciacion de Vehiculo
                                 </label>
-                                <input type="number" step="0.01" v-model="registro.depreciacionvehiculo" class="form-control">
+                                <input type="number" step="any" v-model="registro.depreciacionvehiculo" class="form-control">
                             </div>  
-                        </div>
-                        <div class="row">
-                            <div class="col-12 text-center">
+                            <hr/>
+                        </div>                         
+                        <div class="row">                            
+                            <div class="col-12 text-center">                                
                                 <input type="submit" class="btn btn-outline-success text-center" value="Guardar">
                             </div>
                         </div>
@@ -69,7 +70,7 @@
         mounted(){
             this.load();
         },
-        methods: {
+        methods: {            
             async load(){
                 await this.axios.get(`/api/coeficientes`)
                     .then(response => {
