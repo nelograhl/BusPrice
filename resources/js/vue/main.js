@@ -48,6 +48,9 @@ const Config = () => import('./components/config/Config.vue')
 /* Costos components*/
 const Costos = () => import('./components/costos/Costos.vue')
 
+/* Insumos components*/
+const Insumos = () => import('./components/insumos/Insumos.vue')
+
 
 const routes = [
     {
@@ -139,6 +142,11 @@ const routes = [
         name: 'datosoperacionales',
         path: '/datosoperacionales',
         component: DatosOperacionales
+    },
+    {
+        name: 'insumos',
+        path: '/insumos',
+        component: Insumos
     }
 ];
 

@@ -39,10 +39,9 @@
 							Configuración
 						</a>
 						<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-							<li><a class="dropdown-item" href="#">Insumos Basicos</a></li>
 							<li><a class="dropdown-item" href="/datosoperacionales">Datos Operacionales</a></li>
 							<li><a class="dropdown-item" href="/costos">Costos Variables</a></li>
-							<li><a class="dropdown-item" href="#">Costo Fijo</a></li>
+							<li><a class="dropdown-item" href="/insumos">Insumos Básicos</a></li>
 						</ul>
 					</li>
 					<li class="nav-item">
