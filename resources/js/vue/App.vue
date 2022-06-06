@@ -31,11 +31,11 @@
 					</li>
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-							Informes/Resumen
+							Resúmenes
 						</a>
 						<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">								
-							<li><router-link class="dropdown-item" to="/resumenes/costos">Tabla de Costos</router-link></li>
-							<li><a class="dropdown-item" href="/costos">Costos Variables</a></li>
+							<li><router-link class="dropdown-item" to="/resumenes/costos">Resumen de costos totales</router-link></li>
+							<li><a class="dropdown-item" href="/costos">Resumen de costos variables</a></li>
 							<li  style="display:none;" ><a class="dropdown-item" href="#">Costo Fijo</a></li>
 						</ul>
 					</li>
